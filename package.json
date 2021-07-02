@@ -1,0 +1,26 @@
+{
+  "name": "svelte-vite-tailwind",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "nodemon --exec vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "devDependencies": {
+    "@svitejs/vite-plugin-svelte": "^0.11.1",
+    "@tsconfig/svelte": "^2.0.1",
+    "autoprefixer": "^10.2.5",
+    "nodemon": "^2.0.9",
+    "postcss": "^8.2.8",
+    "svelte": "^3.35.0",
+    "svelte-check": "^2.2.0",
+    "svelte-preprocess": "^4.7.3",
+    "tailwindcss": "^2.0.4",
+    "vite": "^2.1.0"
+  },
+  "dependencies": {
+    "@tailwindcss/forms": "^0.3.3",
+    "@types/node": "^15.14.0",
+    "typescript": "^4.3.5"
+  }
+}
