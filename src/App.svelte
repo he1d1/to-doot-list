@@ -21,7 +21,7 @@
     const breakpoints = [640,768,1024,1280,1536]
 
     let width;
-    $: cols = breakpoints.filter(breakpoint => width >= breakpoint).length
+    $: cols = breakpoints.filter(breakpoint => width >= breakpoint).length + 1
 
     $: console.log(width, cols, breakpoints.filter(breakpoint => width >= breakpoint))
 
