@@ -4,11 +4,11 @@
     import "./lib/index.css";
 
     let name: string = null;
-    let dates: Date[] = []
-    let tasks: String[] = []
+    let dates: Date[]
+    let tasks: String[]
     let todos: Todo[] = []
 
-    name = JSON.parse(localStorage.getItem("name")) ?? []
+    name = JSON.parse(localStorage.getItem("name")) ?? ""
     dates = JSON.parse(localStorage.getItem("dates")) ?? []
     tasks = JSON.parse(localStorage.getItem("tasks")) ?? []
 
