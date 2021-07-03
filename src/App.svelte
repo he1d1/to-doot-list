@@ -2,11 +2,24 @@
     import {dueToday, Todo} from "./lib/Todo";
 
     import "./lib/index.css";
-    import {element, loop_guard} from "svelte/internal";
-    let name = JSON.parse(localStorage.getItem("name") ?? null)
-    let todoJSON = JSON.parse(localStorage.getItem("todos"))
-    let todos: Todo[] = [];
-        todoJSON?.forEach(element => todos.push(element))
+    import {onMount} from "svelte";
+
+    let name: string = null;
+    let dates: Date[] = []
+    let tasks: String[] = []
+    let todos: Todo[] = []
+
+         name = JSON.parse(localStorage.getItem("name"))
+         dates = JSON.parse(localStorage.getItem("dates"))
+         tasks = JSON.parse(localStorage.getItem("tasks"))
+
+        for (let index = 0; index < tasks.length; index++) {
+             todos.push(new Todo(tasks[index], new Date(dates[index])))
+        }
+
+
+
+
     const cols = 6
 
     let newTask;
@@ -16,11 +29,13 @@
 
     const submitTodo = () => {
         todos = [...todos, new Todo(newTask ?? "Unnamed Task", new Date(newDue))]
-        localStorage.setItem("todos", JSON.stringify(todos))
+        localStorage.setItem("dates", JSON.stringify(todos.map(todo => todo.due)))
+        localStorage.setItem("tasks", JSON.stringify(todos.map(todo => todo.task)))
     }
     const deleteTodo = (index) => {
         todos = todos.filter(todo => todo != todos[index])
-        localStorage.setItem("todos", JSON.stringify(todos))
+        localStorage.setItem("dates", JSON.stringify(todos.map(todo => todo.due)))
+        localStorage.setItem("tasks", JSON.stringify(todos.map(todo => todo.task)))
     }
     const submitName = () => {
         name = newName
@@ -38,7 +53,7 @@
                 Welcome back{name != null ? `, ${name}` : ""}.
             </h2>
             <p>You have <b>{todos.length} {todos.length !== 1 ? "todos" : "todo"}</b>
-                remaining{#if todos.length !== 0}, {todos.length === dueToday(todos) ? "All" : dueToday(todos)} of them are due today{:else}. 🎉{/if}</p>
+                remaining{#if todos.length !== 0}, {todos.length === dueToday(todos) ? "All" : dueToday(todos)} of them are due today (or before).{:else}. 🎉{/if}</p>
         </div>
             <div class="card bg-indigo-200 shadow-xl flex flex-col gap-4">
                 <label>
