@@ -9,9 +9,9 @@
     let tasks: String[] = []
     let todos: Todo[] = []
 
-         name = JSON.parse(localStorage.getItem("name"))
-         dates = JSON.parse(localStorage.getItem("dates"))
-         tasks = JSON.parse(localStorage.getItem("tasks"))
+         name = JSON.parse(localStorage.getItem("name")) ?? []
+         dates = JSON.parse(localStorage.getItem("dates")) ?? []
+         tasks = JSON.parse(localStorage.getItem("tasks")) ?? []
 
         for (let index = 0; index < tasks.length; index++) {
              todos.push(new Todo(tasks[index], new Date(dates[index])))
