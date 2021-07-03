@@ -37,7 +37,7 @@
         localStorage.setItem("tasks", JSON.stringify(todos.map(todo => todo.task)))
     }
     const submitName = () => {
-        name = newName
+        name = newName ?? ""
         localStorage.setItem("name", JSON.stringify(name))
     }
 
