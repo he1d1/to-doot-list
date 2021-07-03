@@ -17,9 +17,13 @@
     }
 
     let settingsOpen: boolean = name.length === 0
-    console.log(settingsOpen)
 
-    const cols = 6
+    const breakpoints = [640,768,1024,1280,1536]
+
+    let width;
+    $: cols = breakpoints.filter(breakpoint => width >= breakpoint).length
+
+    $: console.log(width, cols, breakpoints.filter(breakpoint => width >= breakpoint))
 
     let newTask;
     let newDue;
@@ -42,6 +46,8 @@
     }
 
 </script>
+
+<svelte:window bind:innerWidth={width}/>
 
 <main class="flex p-4 gap-4 w-screen">
     {#each Array(cols) as _, col }
