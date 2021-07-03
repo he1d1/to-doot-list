@@ -1,4 +1,4 @@
-# ![to-doot-list](https://to-doot-list.lewie.me/)
+# [to-doot-list](https://to-doot-list.lewie.me/)
 
 A simple todo list made in Svelte.
 
