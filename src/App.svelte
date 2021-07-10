@@ -110,7 +110,7 @@
                                on:keyup={(event) => {if (event.keyCode === 13) {submitTodo()}}}
                                class="transition-all duration-100 ease-in-out mt-1 block w-full rounded-md bg-indigo-100 border-transparent hover:border-gray-200 focus:border-gray-500 focus:bg-white focus:ring-0">
                     </label>
-                    <button on:click={() => submitTodo()} class="bg-indigo-500 text-white px-4 py-2 rounded-md">
+                    <button on:click={() => submitTodo()} class="bg-indigo-500 text-white px-4 py-2 rounded-md transition-all ease-in-out hover:bg-indigo-600">
                         Add
                     </button>
                 </div>
