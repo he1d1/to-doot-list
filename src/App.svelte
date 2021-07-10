@@ -34,6 +34,7 @@
         localStorage.setItem("tasks", JSON.stringify(todos.map(todo => todo.task)))
     }
     const deleteTodo = (index) => {
+        new Audio("doot.mp3").play();
         todos = todos.filter(todo => todo != todos[index])
         localStorage.setItem("dates", JSON.stringify(todos.map(todo => todo.due)))
         localStorage.setItem("tasks", JSON.stringify(todos.map(todo => todo.task)))
