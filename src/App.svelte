@@ -16,7 +16,7 @@
         todos.push(new Todo(tasks[index], new Date(dates[index])))
     }
 
-    let settingsOpen: boolean = name.length === 0
+    let settingsOpen: boolean = (name ?? "").length === 0
 
     const breakpoints = [640,768,1024,1280,1536]
 
@@ -59,7 +59,7 @@
                     <div>
                         <div class="flex">
                             <h2 class="text-white flex-1">
-                                Welcome back{name.length !== 0 ? `, ${name}` : ""}.
+                                Welcome back{(name ?? "").length !== 0 ? `, ${name}` : ""}.
                             </h2>
                             <svg on:click={() => settingsOpen = !settingsOpen} xmlns="http://www.w3.org/2000/svg"
                                  width="16" height="16" fill="currentColor" class="bi bi-gear my-auto"
