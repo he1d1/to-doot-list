@@ -23,8 +23,6 @@
     let width;
     $: cols = breakpoints.filter(breakpoint => width >= breakpoint).length + 1
 
-    $: console.log(width, cols, breakpoints.filter(breakpoint => width >= breakpoint))
-
     let newTask;
     let newDue;
 
@@ -45,6 +43,9 @@
         localStorage.setItem("name", JSON.stringify(name))
     }
 
+    console.log(new Date("Thu Jan 01 1970 01:00:00"))
+    console.log( todos.map(todo => todo.due))
+    console.log( todos.map(todo => todo.due.getTime() != 0))
 </script>
 
 <svelte:window bind:innerWidth={width}/>
@@ -118,9 +119,15 @@
                 {#if (index % cols) === col}
                     <div class="flex gap-4 card shadow-md hover:shadow-xl {todo.dueToday() === true ? 'bg-indigo-100' : 'bg-white'}">
                         <div class="flex gap-4 flex-col flex-1">
-                            <p>{todo.task}
-                            <p>
-                                {todo.formatDate()}
+                            <p>{todo.task}</p>
+                            {#if (todo.due.getTime() !== 0)}
+                                <div class="inline-flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                         class="bi bi-calendar" viewBox="0 0 16 16">
+                                        <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                                    </svg>
+                                    <p>Due in {todo.formatDate()}</p></div>
+                            {/if}
                         </div>
 
 
