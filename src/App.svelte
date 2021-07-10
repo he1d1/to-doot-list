@@ -69,10 +69,9 @@
                             </svg>
                         </div>
                         <p>You have <b>{todos.length} {todos.length !== 1 ? "todos" : "todo"}</b>
-                            remaining
-                            {#if todos.length !== 0}, {todos.length === dueToday(todos) ? "All" : dueToday(todos)} of
+                            remaining{#if todos.length !== 0}, {todos.length === dueToday(todos) ? "All" : dueToday(todos)} of
                                 them
-                                are due today (or before).
+                                {dueToday(todos) === 1 && todos.length !== 1 ? "is" : "are"} due today (or before).
                             {:else}. 🎉
                             {/if}
                         </p>
