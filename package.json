@@ -12,7 +12,7 @@
     "autoprefixer": "^10.2.5",
     "nodemon": "^2.0.9",
     "postcss": "^8.2.8",
-    "svelte": "^3.35.0",
+    "svelte": "^3.49.0",
     "svelte-check": "^2.2.0",
     "svelte-preprocess": "^4.7.3",
     "tailwindcss": "^2.0.4",
